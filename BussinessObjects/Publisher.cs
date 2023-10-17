@@ -14,7 +14,7 @@ namespace BussinessObjects
         public string? State { get; set; }
         public string Country { get; set; }
         
-        public virtual IQueryable<User>? Users { get; set; }
-        public virtual IQueryable<Book>? Books { get; set; }
+        public virtual IList<User>? Users { get; set; }
+        public virtual IList<Book>? Books { get; set; }
     }
 }

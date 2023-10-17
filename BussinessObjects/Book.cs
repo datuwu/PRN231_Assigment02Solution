@@ -20,7 +20,7 @@ namespace BussinessObjects
         public DateTime? PublishedDate { get; set; }
 
         public Publisher? Publisher { get; set; }
-        public IQueryable<BookAuthor>? BookAuthors { get; set; }
+        public IList<BookAuthor>? BookAuthors { get; set; }
         
     }
 }

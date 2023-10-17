@@ -17,7 +17,7 @@ public class BookAuthorsController : ControllerBase
     // GET: api/BookAuthors
     [EnableQuery]
     [HttpGet]
-    public IActionResult GetAll()
+    public IActionResult Get()
     {
         var list = _unitOfWork.BookAuthorRepository.Get();
         if (list == null)
@@ -29,10 +29,10 @@ public class BookAuthorsController : ControllerBase
 
     // GET: api/Authors/ById?Id=5
     [EnableQuery]
-    [HttpGet("{id}")]
-    public async Task<IActionResult> Get(int bookId, int authorId)
+    [HttpGet("book/{bookId}/author/{authorId}")]
+    public async Task<IActionResult> GetById(int bookId, int authorId)
     {
-        var item = await _unitOfWork.BookAuthorRepository.GetByIDAsync(new object[bookId, authorId]);
+        var item = await _unitOfWork.BookAuthorRepository.GetByIDAsync(bookId, authorId);
 
         if (item == null)
         {

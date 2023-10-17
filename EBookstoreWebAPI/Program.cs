@@ -12,6 +12,11 @@ static IEdmModel GetEdmModel()
 {
     ODataConventionModelBuilder builder = new();
     builder.EntitySet<Author>("Authors");
+    builder.EntitySet<BookAuthor>("BookAuthors");
+    builder.EntitySet<Book>("Books");
+    builder.EntitySet<Publisher>("Publishers");
+    builder.EntitySet<Role>("Roles");
+    builder.EntitySet<User>("Users");
     return builder.GetEdmModel();
 }
 

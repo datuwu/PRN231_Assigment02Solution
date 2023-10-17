@@ -36,5 +36,12 @@ namespace BussinessObjects
             optionsBuilder.LogTo(Console.WriteLine).EnableSensitiveDataLogging();
 
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder
+                .Entity<BookAuthor>()
+                .HasKey(e => new { e.BookId, e.AuthorId });
+        }
     }
 }

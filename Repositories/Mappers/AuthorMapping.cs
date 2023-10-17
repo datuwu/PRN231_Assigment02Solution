@@ -14,30 +14,10 @@ namespace Repositories.Mappers
     {
         void AddAuthorConfig()
         {
-            CreateMap<Author, AuthorDetailVM>()
-                .ForMember(
-                    des => des.bookList,
-                    opt => opt.MapFrom(
-                        src => src.BookAuthors != null && src.BookAuthors.Any() ?
-                            GetBookNames(src.BookAuthors)
-                            : new List<string>().AsQueryable()
-                        ));
+            
             CreateMap<AuthorEditVM, Author>().ReverseMap();
         }
 
-        private IQueryable<string> GetBookNames(IQueryable<BookAuthor> bookAuthors)
-        {
-            List<string> bookNames = new List<string>();
-
-            foreach (var bookAuthor in bookAuthors)
-            {
-                if (bookAuthor.Book != null) // Ensure that Product is not null.
-                {
-                    bookNames.Add(bookAuthor.Book.Title);
-                }
-            }
-
-            return bookNames.AsQueryable();
-        }
+        
     }
 }

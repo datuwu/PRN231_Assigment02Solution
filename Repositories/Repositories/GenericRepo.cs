@@ -53,6 +53,11 @@ namespace Repositories.Repositories
             return await dbSet.FindAsync(id);
         }
 
+        public virtual async Task<TEntity> GetByIDAsync(params object[] keyValues)
+        {
+            return await dbSet.FindAsync(keyValues);
+        }
+
         public virtual async Task Insert(TEntity entity)
         {
             await dbSet.AddAsync(entity);

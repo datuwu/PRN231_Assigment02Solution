@@ -18,6 +18,6 @@ namespace BussinessObjects
         public string? State { get; set; }
         public string? Zip { get; set; }
 
-        public virtual IQueryable<BookAuthor>? BookAuthors { get; set; }
+        public virtual IList<BookAuthor>? BookAuthors { get; set; }
     }
 }

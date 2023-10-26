@@ -18,9 +18,11 @@ namespace EBookstoreWebAPI.Controllers
     public class AuthorsController : ODataController
     {
         private UnitOfWork _unitOfWork = new UnitOfWork();
+        private IAuthorService _authorService;
 
-        public AuthorsController()
-        {            
+        public AuthorsController(IAuthorService authorService)
+        {
+            _authorService = authorService;
         }
 
         // GET: api/Authors
@@ -28,7 +30,7 @@ namespace EBookstoreWebAPI.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var list = _unitOfWork.AuthorRepository.Get();
+            var list = _authorService.GetAll();
             if (list == null)
             {
                 return NotFound();

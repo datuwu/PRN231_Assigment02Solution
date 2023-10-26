@@ -1,12 +1,15 @@
 ﻿using BussinessObjects;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
+using Microsoft.AspNetCore.OData.Routing.Controllers;
 using Microsoft.EntityFrameworkCore;
 using Repositories.UnitOfWork;
 
 namespace EBookstoreWebAPI.Controllers
 {
-    public class BooksController : ControllerBase
+    [Route("api/[controller]")]
+    [ApiController]
+    public class BooksController : ODataController
     {
         private UnitOfWork _unitOfWork = new UnitOfWork();
 

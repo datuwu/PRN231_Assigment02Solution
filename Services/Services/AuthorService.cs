@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BussinessObjects;
 using Repositories.UnitOfWork;
 using Repositories.ViewModels.Author;
 using System;
@@ -18,7 +19,7 @@ namespace Services.Services
         {
             _mapper = mapper;
         }
-        public IQueryable<AuthorDetailVM> GetAll()
+        public IQueryable<Author> GetAll()
         {
             var authors = _unitOfWork.AuthorRepository.Get();
 
@@ -27,8 +28,8 @@ namespace Services.Services
                 throw new NullReferenceException("Authors not found");
             }
 
-            var mapAuthors = _mapper.Map<IList<AuthorDetailVM>?>(authors);
-            return mapAuthors.AsQueryable();
+            
+            return authors;
         }
     }
 }

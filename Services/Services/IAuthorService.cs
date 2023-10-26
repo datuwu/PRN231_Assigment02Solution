@@ -1,4 +1,5 @@
-﻿using Repositories.ViewModels.Author;
+﻿using BussinessObjects;
+using Repositories.ViewModels.Author;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace Services.Services
 {
     public interface IAuthorService
     {
-        IQueryable<AuthorDetailVM> GetAll();
+        IQueryable<Author> GetAll();
     }
 }

@@ -119,7 +119,7 @@ namespace EBookstoreWebAPI.Controllers
 
         private bool IsExists(int id)
         {
-            var list = _unitOfWork.UserRepository.Get();
+            var list = _unitOfWork.AuthorRepository.Get();
             return (list.ToList().Any(e => e.Id == id));
         }
     }
